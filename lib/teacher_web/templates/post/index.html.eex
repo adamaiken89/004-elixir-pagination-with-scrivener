@@ -16,8 +16,8 @@
       <td><%= post.body %></td>
 
       <td>
-        <span><%= link "Show", to: Routes.post_path(@conn, :show, post) %></span>
-        <span><%= link "Edit", to: Routes.post_path(@conn, :edit, post) %></span>
+        <span><%= link "Show", to: Routes.post_path(@conn, :show, post) %></span> |
+        <span><%= link "Edit", to: Routes.post_path(@conn, :edit, post) %></span> |
         <span><%= link "Delete", to: Routes.post_path(@conn, :delete, post), method: :delete, data: [confirm: "Are you sure?"] %></span>
       </td>
     </tr>
@@ -25,4 +25,16 @@
   </tbody>
 </table>
 
+<%= if @page.page_number > 1 do %>
+  <%= link "Prev Page", to: Routes.post_path(@conn, :index, page: @page.page_number - 1) %>
+<% end %>
+<%= if @page.page_number > 1 && @page.page_number < @page.total_pages do %>
+  |
+<% end %>
+<%= if @page.page_number < @page.total_pages do %>
+  <%= link "Next Page", to: Routes.post_path(@conn, :index, page: @page.page_number + 1) %>
+<% end %>
+<%= if @page.page_number > 1 || @page.page_number < @page.total_pages do %>
+  ||
+<% end %>
 <span><%= link "New Post", to: Routes.post_path(@conn, :new) %></span>

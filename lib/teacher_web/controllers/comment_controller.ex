@@ -2,7 +2,7 @@ defmodule TeacherWeb.CommentController do
   use TeacherWeb, :controller
 
   alias Teacher.Blogs
-  alias Teacher.Blogs.{Post, Comment}
+  alias Teacher.Blogs.{Comment}
   alias Teacher.Repo
 
   def create(conn, %{"comment" => comment_params, "post_id" => post_id}) do

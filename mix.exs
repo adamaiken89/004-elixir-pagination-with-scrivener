@@ -20,7 +20,7 @@ defmodule Teacher.MixProject do
   def application do
     [
       mod: {Teacher.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools],
     ]
   end
 
@@ -44,7 +44,8 @@ defmodule Teacher.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:scrivener_ecto, "~> 2.0"},
     ]
   end
 
